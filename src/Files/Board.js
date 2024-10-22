@@ -16,6 +16,12 @@ export default function Board() {
     setRestrictUser(copyRestrict)
 
   }
+  const handleAllValues=()=>{
+    setSquare(Array(9).fill(null))
+    setSymbol(true)
+    setPlayer('X')
+    setRestrictUser(Array(9).fill(true))
+  }
   const checkWinner = () => {
     const winnerArray = [
       [0, 1, 2],
@@ -46,6 +52,7 @@ export default function Board() {
   }, [symbol])
   return (
     <div className='container'>
+      <button onClick={()=>handleAllValues()}>Play Again</button>
       {isWinner ? 
       <h1>Winner is {isWinner} </h1> : 
       ischecker ? 
